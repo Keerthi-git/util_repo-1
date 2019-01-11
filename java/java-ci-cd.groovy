@@ -9,6 +9,7 @@ def execute() {
 	stage('read') {
 		git url: props.GIT_URL,
         branch: props.BRANCH
+		artifactId=pom.artifactId
 		echo 'read success'
 	}
 	/*stage('scan') {
@@ -25,7 +26,7 @@ def execute() {
 			uploadSpec = """{
 				"files":[{
 				"pattern": "target/*.war",
-				"target": "Jenkins-snapshot"
+				"target": "Jenkins-snapshot/${artifactId}/${buildNo}/"
 				}]
 			}"""
 			server.upload(uploadSpec) 	
