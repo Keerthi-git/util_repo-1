@@ -1,9 +1,6 @@
 def execute() {
 	stage('read') {
-		git url: props.JAVA_APP_REPO_GIT_URL,
-        branch: props.BRANCH
-		pom = readMavenPom file: props.POM_FILE
-		artifactId=pom.artifactId
+		commonUtility.javaRead();
 		echo 'read success'
 	}
 	/*stage('scan') {
@@ -16,8 +13,6 @@ def execute() {
     }
 	stage('upload') {
         script {
-			buildNo=BUILD_NUMBER
-			commonUtility=load props.COMMON_GROOVY
 			commonUtility.uploadWarArtifactory();
 			echo 'upload success'
 		}
