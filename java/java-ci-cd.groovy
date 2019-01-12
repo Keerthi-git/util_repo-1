@@ -23,14 +23,8 @@ def execute() {
     }
 	stage('upload') {
         script {
-			server = Artifactory.server props.ARTIFACTORY_ID
-			uploadSpec = """{
-				"files":[{
-				"pattern": "target/*.war",
-				"target": "Jenkins-snapshot/${artifactId}/${buildNo}/"
-				}]
-			}"""
-			server.upload(uploadSpec) 	
+			commonUtility=load 'util_repo/common/common.groovy'
+			commonUtility.uploadArtifactory();
 			echo 'upload success'
 		}
     }
