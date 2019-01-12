@@ -11,11 +11,12 @@ def execute() {
 		echo 'scan success'
 	}*/
 	stage('build') {
-        sh props.MAVEN_BUILD+buildNo
+        sh props.MAVEN_BUILD
 		echo 'build success'
     }
 	stage('upload') {
         script {
+			buildNo=BUILD_NUMBER
 			commonUtility=load props.COMMON_GROOVY
 			commonUtility.uploadWarArtifactory();
 			echo 'upload success'
