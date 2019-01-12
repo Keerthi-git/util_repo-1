@@ -1,5 +1,5 @@
 def javaRead() {
-	stage('java read) {
+	stage('java read') {
 		git url: props.JAVA_APP_REPO_GIT_URL,
         branch: props.BRANCH
 		pom = readMavenPom file: props.POM_FILE
