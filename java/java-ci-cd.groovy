@@ -23,7 +23,7 @@ def execute() {
     }
 	stage('upload') {
         script {
-			commonUtility=load 'util_repo/common/common.groovy'
+			commonUtility=load props.COMMON_GROOVY
 			commonUtility.uploadWarArtifactory();
 			echo 'upload success'
 		}
