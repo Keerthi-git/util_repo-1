@@ -1,11 +1,11 @@
 def execute() {
-	stage('load') {
+	/*stage('load') {
 		script {
 			props = readProperties file: 'Properties/pipeline.properties'
 			buildNo=BUILD_NUMBER
 			echo 'load success'
 		}
-	}
+	}*/
 	stage('read') {
 		git url: props.GIT_URL,
         branch: props.BRANCH
