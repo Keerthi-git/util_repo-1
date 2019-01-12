@@ -9,7 +9,7 @@ def execute() {
 	stage('read') {
 		git url: props.GIT_URL,
         branch: props.BRANCH
-		pom = readMavenPom file: 'pom.xml'
+		pom = readMavenPom file: props.POM_FILE
 		artifactId=pom.artifactId
 		echo 'read success'
 	}
