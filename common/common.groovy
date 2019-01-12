@@ -5,7 +5,7 @@ def uploadWarArtifactory() {
 			uploadSpec = """{
 				"files":[{
 				"pattern": "target/*.war",
-				"target": "Jenkins-snapshot/${artifactId}/1.0.${buildNo}/"
+				"target": "Jenkins-war-snapshots/${artifactId}/1.0.${buildNo}/"
 				}]
 			}"""
 			server.upload(uploadSpec) 	
