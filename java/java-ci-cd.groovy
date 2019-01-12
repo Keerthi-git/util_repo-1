@@ -24,7 +24,7 @@ def execute() {
 	stage('upload') {
         script {
 			commonUtility=load 'util_repo/common/common.groovy'
-			commonUtility.uploadArtifactory();
+			commonUtility.uploadJavaWarArtifactory();
 			echo 'upload success'
 		}
     }

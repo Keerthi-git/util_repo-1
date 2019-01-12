@@ -1,4 +1,4 @@
-def uploadArtifactory() {
+def uploadJavaWarArtifactory() {
 	stage('common upload') {
 		script {
 			server = Artifactory.server props.ARTIFACTORY_ID
