@@ -1,13 +1,6 @@
 def execute() {
-	/*stage('load') {
-		script {
-			props = readProperties file: 'Properties/pipeline.properties'
-			buildNo=BUILD_NUMBER
-			echo 'load success'
-		}
-	}*/
 	stage('read') {
-		git url: props.GIT_URL,
+		git url: props.JAVA_APP_REPO_GIT_URL,
         branch: props.BRANCH
 		pom = readMavenPom file: props.POM_FILE
 		artifactId=pom.artifactId
