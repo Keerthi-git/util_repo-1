@@ -4,7 +4,7 @@ def execute() {
 		echo 'read success'
 	}
 	/*stage('scan') {
-        sh props.SONAR_SCAN+props.SONAR_HOST
+        sh props.SONAR_SCAN+' '+props.SONAR_HOST
 		echo 'scan success'
 	}*/
 	stage('build') {
@@ -18,7 +18,7 @@ def execute() {
 		}
     }
 	stage('deploy') {
-        sh props.TOMCAT_DEPLOY+props.TOMCAT_LOCATION
+        sh props.TOMCAT_DEPLOY+' '+props.TOMCAT_LOCATION
 		echo 'deploy success'
     }
 }
