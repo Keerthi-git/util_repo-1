@@ -20,7 +20,6 @@ def execute() {
 	stage('deploy') {
         sh props.TOMCAT_DEPLOY+' '+props.TOMCAT_LOCATION
 		echo 'deploy success'
-		currentBuild.result = "SUCCESS"
     }
 }
 return this
