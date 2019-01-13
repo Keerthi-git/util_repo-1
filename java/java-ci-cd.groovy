@@ -21,5 +21,13 @@ def execute() {
         sh props.TOMCAT_DEPLOY+' '+props.TOMCAT_LOCATION
 		echo 'deploy success'
     }
+	post {
+        always {
+          step([$class: 'Mailer',
+            notifyEveryUnstableBuild: true,
+            recipients: "niranjan.hampannavar@mindtree.com",
+            sendToIndividuals: true])
+        }
+    }
 }
 return this
