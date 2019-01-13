@@ -22,4 +22,11 @@ def uploadWarArtifactory() {
 		}
 	}
 }
+def sendEmail() {
+	emailext( 
+        subject: '${DEFAULT_SUBJECT}', 
+        body: '${DEFAULT_CONTENT}',
+        to: props.BUILD_EMAIL_RECIPIENT
+    );
+}
 return this
