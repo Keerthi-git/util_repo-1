@@ -23,10 +23,13 @@ def uploadWarArtifactory() {
 	}
 }
 def sendEmail() {
-	emailext( 
-        subject: '${DEFAULT_SUBJECT}', 
-        body: '${DEFAULT_CONTENT}',
-        to: props.BUILD_EMAIL_RECIPIENT
-    );
+	stage('send mail') {
+		emailext( 
+			subject: '${DEFAULT_SUBJECT}', 
+			body: '${DEFAULT_CONTENT}',
+			to: props.BUILD_EMAIL_RECIPIENT
+		);
+		echo 'mail sent'
+	}
 }
 return this
