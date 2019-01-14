@@ -25,14 +25,14 @@ def execute() {
 		}
     }*/
 	
-	stage('aws') {
+	/*stage('aws') {
 		commonUtility.createAwsInstance();
 		echo 'instance created'
-	}
+	}*/
 	
-	stage('deploy') {
+	/*stage('deploy') {
         sh props.TOMCAT_DEPLOY+' '+props.TOMCAT_LOCATION
 		echo 'deploy success'
-    }
+    }*/
 }
 return this
