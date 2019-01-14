@@ -1,11 +1,3 @@
-def readPom() {
-	script {
-		pom = readMavenPom file: props.POM_FILE
-		artifactId=pom.artifactId
-		version=pom.version
-	}
-}
-
 def uploadWarArtifactory() {
 	script {
 		server = Artifactory.server props.ARTIFACTORY_ID
