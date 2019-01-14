@@ -22,8 +22,7 @@ def sendEmail() {
 
 def cleanWorkspace() {
 	script {
-		sh 'rm -rf ../${jobName}'
-		sh 'rm -rf ../${jobName}@tmp'
+		sh 'rm -rf ../'+jobName+'/*'
 	}
 	echo 'cleaned workspace'
 }
