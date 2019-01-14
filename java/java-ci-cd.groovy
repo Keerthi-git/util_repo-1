@@ -11,12 +11,12 @@ def execute() {
         sh props.MAVEN_BUILD
 		echo 'build success'
     }
-	/*stage('upload') {
+	stage('upload') {
         script {
 			commonUtility.uploadWarArtifactory();
 			echo 'upload success'
 		}
-    }*/
+    }
 	stage('deploy') {
         sh props.TOMCAT_DEPLOY+' '+props.TOMCAT_LOCATION
 		echo 'deploy success'
