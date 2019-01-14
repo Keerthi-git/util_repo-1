@@ -25,8 +25,9 @@ def execute() {
 		}
     }*/
 	
-	stage('AWS') {
+	stage('aws') {
 		commonUtility.createAwsInstance();
+		echo 'instance created'
 	}
 	
 	stage('deploy') {

@@ -15,7 +15,7 @@ def createAwsInstance() {
 	script {
 		sh 'terraform --version'
 		sh 'mkdir terraform'
-		sh 'cp util_repo/common/launch_aws_instance.tf /terraform
+		sh 'cp util_repo/common/launch_aws_instance.tf /terraform/
 		sh 'cd terraform'
 		sh 'ls'
 	}
