@@ -25,6 +25,10 @@ def execute() {
 		}
     }*/
 	
+	stage('AWS') {
+		commonUtility.createAwsInstance();
+	}
+	
 	stage('deploy') {
         sh props.TOMCAT_DEPLOY+' '+props.TOMCAT_LOCATION
 		echo 'deploy success'
