@@ -18,12 +18,12 @@ def execute() {
 		echo 'build success'
     }
 	
-	stage('upload') {
+	/*stage('upload') {
         script {
 			commonUtility.uploadWarArtifactory();
 			echo 'upload success'
 		}
-    }
+    }*/
 	
 	stage('deploy') {
         sh props.TOMCAT_DEPLOY+' '+props.TOMCAT_LOCATION
