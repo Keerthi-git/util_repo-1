@@ -17,13 +17,13 @@ def sendEmail() {
 			body: '${DEFAULT_CONTENT}',
 			to: props.BUILD_EMAIL_RECIPIENT
 		);
-	echo 'mail sent'
+	print 'mail sent'
 }
 
 def cleanWorkspace() {
 	script {
 		sh 'rm -rf ../'+jobName+'/*'
 	}
-	echo 'cleaned workspace'
+	print 'cleaned workspace'
 }
 return this
