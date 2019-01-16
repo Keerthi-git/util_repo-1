@@ -1,33 +1,26 @@
 def execute() {
-	stage('read') {
+	stage('stageCheckoutProject') {
 		git url: props.JAVA_APP_REPO_GIT_URL,
         branch: props.BRANCH
 		pom = readMavenPom file: props.POM_FILE
 		artifactId=pom.artifactId
 		version=pom.version
-		echo 'read success'
+		print 'Checkout Project Success'
 	}
 	
-	/*stage('scan') {
-        sh props.SONAR_SCAN+' '+props.SONAR_HOST
-		echo 'scan success'
-	}*/
-	
-	stage('build') {
-        sh props.MAVEN_BUILD
-		echo 'build success'
+	stage('stageBuildAutomation') {
+		script {
+			/*sh props.SONAR_SCAN+' '+props.SONAR_HOST*/
+			sh props.MAVEN_BUILD
+			print 'Build Automation Success'
+		}
     }
 	
-	/*stage('upload') {
+	stage('stageBuildManagement') {
         script {
-			commonUtility.uploadWarArtifactory();
-			echo 'upload success'
-		}
-    }*/
-	
-	stage('deploy') {
-        sh props.TOMCAT_DEPLOY+' '+props.TOMCAT_LOCATION
-		echo 'deploy success'
+			/*commonUtility.uploadWarArtifactory();*/
+			sh props.TOMCAT_DEPLOY+' '+props.TOMCAT_LOCATION
+			print 'Build Management Success'
     }
 }
 return this
