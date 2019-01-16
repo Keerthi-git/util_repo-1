@@ -18,7 +18,7 @@ def execute() {
 	
 	stage('stageBuildManagement') {
         script {
-			/*commonUtility.uploadWarArtifactory();*/
+			commonUtility.uploadWarArtifactory();
 			sh props.TOMCAT_DEPLOY+' '+props.TOMCAT_LOCATION
 			print 'Build Management Success'
     }
