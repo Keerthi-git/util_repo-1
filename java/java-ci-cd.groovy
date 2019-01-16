@@ -9,18 +9,15 @@ def execute() {
 	}
 	
 	stage('stageBuildAutomation') {
-		script {
-			/*sh props.SONAR_SCAN+' '+props.SONAR_HOST*/
-			sh props.MAVEN_BUILD
-			print 'Build Automation Success'
-		}
+		/*sh props.SONAR_SCAN+' '+props.SONAR_HOST*/
+		sh props.MAVEN_BUILD
+		print 'Build Automation Success'
     }
 	
 	stage('stageBuildManagement') {
-        script {
-			commonUtility.uploadWarArtifactory();
-			sh props.TOMCAT_DEPLOY+' '+props.TOMCAT_LOCATION
-			print 'Build Management Success'
-    }
+		commonUtility.uploadWarArtifactory();
+		sh props.TOMCAT_DEPLOY+' '+props.TOMCAT_LOCATION
+		print 'Build Management Success'
+	}
 }
 return this
