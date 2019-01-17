@@ -13,8 +13,8 @@ def uploadWarArtifactory() {
 
 def sendEmail() {
 	emailext( 
-			subject: '${env.DEFAULT_SUBJECT}', 
-			body: '${env.DEFAULT_CONTENT}',
+			subject: '${DEFAULT_SUBJECT}', 
+			body: '${DEFAULT_CONTENT}',
 			to: props.BUILD_EMAIL_RECIPIENT
 		);
 	print 'mail sent'
