@@ -18,7 +18,7 @@ def execute() {
 		commonUtility.uploadWarArtifactory();
 		sh props.TOMCAT_DEPLOY+' '+props.TOMCAT_LOCATION
 		sh 'docker build -t dockerfile .'
-		sh 'docker run --rm -p -d 8084:8080 dockerfile'
+		sh 'docker run --rm -d -p 8084:8080 dockerfile'
 		print 'Build Management Success'
 	}
 }
