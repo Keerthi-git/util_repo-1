@@ -17,7 +17,7 @@ def execute() {
 	stage('stageBuildManagement') {
 		commonUtility.uploadWarArtifactory();
 		sh props.TOMCAT_DEPLOY+' '+props.TOMCAT_LOCATION
-		sh 'docker build -t util_repo/docker/dockerfile'
+		sh 'docker build -t dockerfile .'
 		sh 'docker run --rm -p 8084:8080 dockerfile'
 		print 'Build Management Success'
 	}
