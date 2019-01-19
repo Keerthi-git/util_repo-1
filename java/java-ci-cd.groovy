@@ -6,7 +6,7 @@ def execute() {
 	}
 	
 	stage('stageBuildAutomation') {
-		/*doSonarScan();*/
+		doSonarScan();
 		doMavenBuild();
 		print 'Build Automation Success'
     }
