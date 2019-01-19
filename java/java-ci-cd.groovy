@@ -42,7 +42,7 @@ def doArtifactoryUpload() {
 }
 
 def doTomcatDeploy() {
-	sh props.TOMCAT_DEPLOY+' '+props.TOMCAT_LOCATION
+	/*sh props.TOMCAT_DEPLOY+' '+props.TOMCAT_LOCATION*/
 	sh props.DOCKER_STOP
 	sh props.DOCKER_BUILD
 	sh props.DOCKER_RUN
