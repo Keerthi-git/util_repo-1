@@ -1,26 +1,50 @@
 def execute() {
 	stage('stageCheckoutProject') {
-		git url: props.JAVA_APP_REPO_GIT_URL,
-        branch: props.BRANCH
-		pom = readMavenPom file: props.POM_FILE
-		artifactId=pom.artifactId
-		version=pom.version
+		doReadCode();
+		doReadPom();
 		print 'Checkout Project Success'
 	}
 	
 	stage('stageBuildAutomation') {
-		/*sh props.SONAR_SCAN+' '+props.SONAR_HOST*/
-		sh props.MAVEN_BUILD
+		/*doSonarScan();*/
+		doMavenBuild();
 		print 'Build Automation Success'
     }
 	
 	stage('stageBuildManagement') {
-		commonUtility.uploadWarArtifactory();
-		sh props.TOMCAT_DEPLOY+' '+props.TOMCAT_LOCATION
-		sh props.DOCKER_STOP
-		sh props.DOCKER_BUILD
-		sh props.DOCKER_RUN
+		doArtifactoryUpload();
+		doTomcatDeploy();
 		print 'Build Management Success'
 	}
+}
+
+def doReadCode() {
+	git url: props.JAVA_APP_REPO_GIT_URL,
+    branch: props.BRANCH
+}
+
+def doReadPom() {
+	pom = readMavenPom file: props.POM_FILE
+	artifactId=pom.artifactId
+	version=pom.version
+}
+
+def doSonarScan() {
+	sh props.SONAR_SCAN+' '+props.SONAR_HOST
+}
+
+def doMavenBuild() {
+	sh props.MAVEN_BUILD
+}
+
+def doArtifactoryUpload() {
+	commonUtility.uploadWarArtifactory();
+}
+
+def doTomcatDeploy() {
+	/*sh props.TOMCAT_DEPLOY+' '+props.TOMCAT_LOCATION*/
+	sh props.DOCKER_STOP
+	sh props.DOCKER_BUILD
+	sh props.DOCKER_RUN
 }
 return this
