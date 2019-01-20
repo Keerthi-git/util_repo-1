@@ -30,7 +30,7 @@ def doReadPom() {
 }
 
 def doSonarScan() {
-	sh props.SONAR_SCAN+' '+props.SONAR_HOST+' '+props.SONAR_TEST
+	sh props.SONAR_SCAN+' '+props.SONAR_HOST+' '+props.SONAR_TEST+' '+props.SONAR_IGNORE
 }
 
 def doMavenBuild() {
