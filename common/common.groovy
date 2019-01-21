@@ -4,7 +4,7 @@ def uploadWarArtifactory() {
 		uploadSpec = """{
 			"files":[{
 			"pattern": "target/*.war",
-			"target": "example-repo-local/${artifactId}/${version}.${buildNo}/"
+			"target": "Java-war-snapshots/${artifactId}/${version}.${buildNo}/"
 			}]
 		}"""
 		server.upload(uploadSpec) 	
